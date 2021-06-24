@@ -15,7 +15,7 @@ https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-t
 https://www.youtube.com/watch?v=7KW59UO55TQ
 
 https://stackoverflow.com/questions/5222730/why-is-merge-sort-preferred-over-quick-sort-for-sorting-linked-lists?noredirect=1&lq=1
-
+https://stackoverflow.com/questions/33704858/sorting-2-linked-list-of-50000-numbers-with-a-limited-set-of-operations
 
 
 
