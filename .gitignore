@@ -1,0 +1,10 @@
+*.gch
+test.out
+libft/libft.a
+.DS_Store
+*.o
+*/*.o
+a.out
+notes.txt
+a.out.dSYM
+*.swp
