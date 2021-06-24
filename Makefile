@@ -6,7 +6,7 @@
 #    By: llalba <llalba@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/24 16:05:23 by llalba            #+#    #+#              #
-#    Updated: 2021/06/24 16:49:49 by llalba           ###   ########.fr        #
+#    Updated: 2021/06/24 17:09:53 by llalba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,5 +53,9 @@ norme:
 			norminette ./$(H_FOLDER)*.h
 			@echo
 			norminette $(SRCS_FILES)
+
+test:		$(NAME)
+			./push_swap ${ARG} | wc -l
+			./push_swap ${ARG} | ./checker_Mac ${ARG}
 
 .PHONY:		all clean fclean re
