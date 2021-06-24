@@ -5,6 +5,5 @@ libft/libft.a
 *.o
 */*.o
 a.out
-notes.txt
 a.out.dSYM
 *.swp
