@@ -1,5 +1,10 @@
 Ne pas oublier fsanitize=address
 
+https://github.com/o-reo/push_swap_visualizer
+https://en.wikipedia.org/wiki/Analysis_of_algorithms
+
+
+https://github.com/bycop/42-push_swap
 https://githubmemory.com/repo/bycop/42-push-swap
 https://github.com/wwatkins42/42_C_Projects/tree/master/Push_swap
 https://gitlab.com/42-ecole/push_swap
