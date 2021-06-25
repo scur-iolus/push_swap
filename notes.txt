@@ -1,5 +1,8 @@
 Ne pas oublier fsanitize=address
 
+https://www.youtube.com/watch?v=9LifznRAZQY
+
+
 https://github.com/o-reo/push_swap_visualizer
 https://en.wikipedia.org/wiki/Analysis_of_algorithms
 
