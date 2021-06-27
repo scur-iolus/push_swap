@@ -6,9 +6,12 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 16:42:44 by llalba            #+#    #+#             */
-/*   Updated: 2021/06/25 16:07:09 by llalba           ###   ########.fr       */
+/*   Updated: 2021/06/27 18:08:26 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../includes/push_swap.h"
+#include "../libft/libft.h"
 
 void	lstdel(void *element)
 {
@@ -21,7 +24,18 @@ void	ft_error()
 	exit(EXIT_FAILURE);
 }
 
-void	free_r(char **ptr)
+short	is_new(t_list *tmp, void *content)
+{
+	while (tmp)
+	{
+		if ((int)(tmp->content) == (int)content)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
+}
+
+void	free_str_ptr(char **ptr)
 {
 	int	i;
 

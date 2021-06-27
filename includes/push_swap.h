@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 16:04:48 by llalba            #+#    #+#             */
-/*   Updated: 2021/06/25 15:41:02 by llalba           ###   ########.fr       */
+/*   Updated: 2021/06/27 17:58:04 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 # include <stdlib.h>
 # include <sys/uio.h>
 # include <sys/types.h>
-# include "../libft/libft.hc"
+# include "../libft/libft.h"
 
 typedef struct	s_stacks
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
 	int		len;
-}				t_stacks
+}				t_stacks;
 
 
 /*
@@ -33,7 +33,8 @@ typedef struct	s_stacks
 
 void	lstdel(void *element);
 void	ft_error();
-void	free_r(char **ptr);
+short	is_new(t_list *tmp, void *content);
+void	free_str_ptr(char **ptr);
 short	is_int(char *str);
 
 #endif

@@ -1,3 +1,4 @@
+push_swap
 *.gch
 test.out
 libft/libft.a
