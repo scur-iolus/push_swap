@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 16:04:48 by llalba            #+#    #+#             */
-/*   Updated: 2021/06/28 09:27:33 by llalba           ###   ########.fr       */
+/*   Updated: 2021/06/28 10:03:24 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ typedef struct	s_stacks
 	int		len;
 }				t_stacks;
 
-
 /*
 ** utils.c
 */
@@ -49,5 +48,13 @@ void	rotate(t_list **stack);
 void	double_rotate(t_list **stack_a, t_list **stack_b);
 void	rev_rotate(t_list **stack);
 void	dble_rev_rotate(t_list **stack_a, t_list **stack_b);
+
+/*
+** push_swap.c
+*/
+
+void	swap(t_list **stack);
+void	ss(t_list **stack_a, t_list **stack_b);
+void	push(t_list **from, t_list **to);
 
 #endif

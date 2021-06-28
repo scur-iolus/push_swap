@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: llalba <llalba@student.42.fr>              +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/06/28 10:13:05 by llalba            #+#    #+#              #
+#    Updated: 2021/06/28 10:13:54 by llalba           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME =		libft.a
 
 SRCS =		ft_atoi.c \
@@ -55,12 +67,14 @@ BONUS =		ft_lstnew.c \
 			ft_lstmap.c
 
 $(NAME):	${OBJ}
-			ar rcs $@ $^
+			@ar rcs $@ $^
+			@echo "libft.a generated."
 
 BONUS_OBJ =	${BONUS:.c=.o}
 
 bonus:		${OBJ} ${BONUS_OBJ}
-			ar rcs ${NAME} $^
+			@ar rcs ${NAME} $^
+			@echo "libft.a generated with bonus functions."
 
 all:		${NAME}
 

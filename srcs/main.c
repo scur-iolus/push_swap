@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 16:04:58 by llalba            #+#    #+#             */
-/*   Updated: 2021/06/28 09:39:56 by llalba           ###   ########.fr       */
+/*   Updated: 2021/06/28 10:05:48 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,12 +92,22 @@ static int	ft_load(t_list **stack, int argc, char **argv)
 	return (1);
 }
 
+static void	print_stack(t_list *tmp, const char *str) // =============================================================
+{
+	printf("\n%s\n>>>", str);
+	while (tmp)
+	{
+		printf(" %d", (int)(tmp->content));
+		tmp = tmp->next;
+	}
+	printf("\n");
+}
+
 int	main(int argc, char **argv)
 {
 	t_list		*stack_a;
 	t_list		*stack_b;
 	t_stacks	s;
-	t_list		*tmp; // =============================================================
 
 	if (argc > 1)
 	{
@@ -111,22 +121,14 @@ int	main(int argc, char **argv)
 		if (ft_load(&s.stack_a, argc, argv) == -1)
 			ft_error();
 		////
-		tmp = s.stack_a;
-		printf("\n>>>");
-		while (tmp)
-		{
-			printf(" %d", (int)(tmp->content));
-			tmp = tmp->next;
-		}
-		printf("\n>>>");
-		rev_rotate(&s.stack_a);
-		tmp = s.stack_a;
-		while (tmp)
-		{
-			printf(" %d", (int)(tmp->content));
-			tmp = tmp->next;
-		}
-		printf("\n\n");
+		print_stack(s.stack_a, "stack A");
+		print_stack(s.stack_b, "stack B");
+		push(&s.stack_a, &s.stack_b);
+		push(&s.stack_a, &s.stack_b);
+		push(&s.stack_a, &s.stack_b);
+		push(&s.stack_a, &s.stack_b);
+		print_stack(s.stack_a, "stack A");
+		print_stack(s.stack_b, "stack B");
 		////
 		ft_lstclear(&s.stack_a, lstdel);
 		ft_lstclear(&s.stack_b, lstdel);

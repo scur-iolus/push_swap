@@ -6,7 +6,7 @@
 #    By: llalba <llalba@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/24 16:05:23 by llalba            #+#    #+#              #
-#    Updated: 2021/06/28 09:37:53 by llalba           ###   ########.fr        #
+#    Updated: 2021/06/28 10:18:29 by llalba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,8 @@ SRCS_FILES	= \
 SRCS_OBJS	= $(SRCS_FILES:.c=.o)
 
 $(NAME):	$(SRCS_OBJS)
-			make bonus -C libft
+			@make bonus -C libft
+			@echo "Binary files up to date or updated."
 			$(CC) $(FLAGS) -fsanitize=address -o $(NAME) $(SRCS_OBJS) \
 			-L$(PWD)/$(LIBFT_PATH) -lft
 
