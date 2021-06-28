@@ -1,28 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   solver.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/25 12:06:08 by llalba            #+#    #+#             */
-/*   Updated: 2021/06/28 09:26:40 by llalba           ###   ########.fr       */
+/*   Created: 2021/06/28 08:43:01 by llalba            #+#    #+#             */
+/*   Updated: 2021/06/28 08:48:29 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/push_swap.h"
+#include "../libft/libft.h"
 
-int	ft_lstsize(t_list *lst)
-{
-	int		i;
-	t_list	*current;
-
-	i = 0;
-	current = lst;
-	while (current)
-	{
-		current = current->next;
-		i++;
-	}
-	return (i);
-}
+// sort_five
+// main_algo

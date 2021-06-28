@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 16:42:44 by llalba            #+#    #+#             */
-/*   Updated: 2021/06/27 18:08:26 by llalba           ###   ########.fr       */
+/*   Updated: 2021/06/28 08:41:10 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,6 @@ void	ft_error()
 {
 	write(2, "Error\n", 7);
 	exit(EXIT_FAILURE);
-}
-
-short	is_new(t_list *tmp, void *content)
-{
-	while (tmp)
-	{
-		if ((int)(tmp->content) == (int)content)
-			return (0);
-		tmp = tmp->next;
-	}
-	return (1);
 }
 
 void	free_str_ptr(char **ptr)

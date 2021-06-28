@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 16:04:58 by llalba            #+#    #+#             */
-/*   Updated: 2021/06/27 18:27:00 by llalba           ###   ########.fr       */
+/*   Updated: 2021/06/28 09:39:56 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "../libft/libft.h"
 #include <stdio.h> // ==================================================================
 
-int	ft_stacksize(int argc, char **argv)
+static int	ft_stacksize(int argc, char **argv)
 {
 	int		size;
 	int		i;
@@ -43,7 +43,18 @@ int	ft_stacksize(int argc, char **argv)
 	return (size);
 }
 
-short	is_valid_int(long long n, t_list **stack, char **split)
+static short	is_new(t_list *tmp, void *content)
+{
+	while (tmp)
+	{
+		if ((int)(tmp->content) == (int)content)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
+}
+
+static short	is_valid_int(long long n, t_list **stack, char **split)
 {
 	if (n < -2147483648 || n > 2147483647 || !is_new(*stack, &n))
 	{
@@ -54,7 +65,7 @@ short	is_valid_int(long long n, t_list **stack, char **split)
 	return (1);
 }
 
-int	ft_load(t_list **stack, int argc, char **argv)
+static int	ft_load(t_list **stack, int argc, char **argv)
 {
 	int			i;
 	int			j;
@@ -101,11 +112,21 @@ int	main(int argc, char **argv)
 			ft_error();
 		////
 		tmp = s.stack_a;
+		printf("\n>>>");
 		while (tmp)
 		{
-			printf(">>> %d\n", (int)(tmp->content));
+			printf(" %d", (int)(tmp->content));
 			tmp = tmp->next;
 		}
+		printf("\n>>>");
+		rev_rotate(&s.stack_a);
+		tmp = s.stack_a;
+		while (tmp)
+		{
+			printf(" %d", (int)(tmp->content));
+			tmp = tmp->next;
+		}
+		printf("\n\n");
 		////
 		ft_lstclear(&s.stack_a, lstdel);
 		ft_lstclear(&s.stack_b, lstdel);
