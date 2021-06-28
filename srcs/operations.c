@@ -1,17 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/28 08:49:28 by llalba            #+#    #+#             */
-/*   Updated: 2021/06/28 09:40:55 by llalba           ###   ########.fr       */
+/*   Created: 2021/06/28 08:49:36 by llalba            #+#    #+#             */
+/*   Updated: 2021/06/28 11:50:08 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include "../libft/libft.h"
+
+void	swap(t_list **stack)
+{
+	t_list	*tmp;
+
+	if (*stack == 0 || (*stack)->next == 0)
+		return ;
+	tmp = *stack;
+	*stack = (*stack)->next;
+	tmp->next = (*stack)->next;
+	(*stack)->next = tmp;
+}
+
+void	push(t_list **from, t_list **to)
+{
+	t_list	*tmp;
+	
+	if (*from == 0)
+		return ;
+	tmp = (*from)->next;
+	ft_lstadd_front(to, *from);
+	*from = tmp;
+}
 
 void	rotate(t_list **stack)
 {
@@ -25,12 +48,6 @@ void	rotate(t_list **stack)
 	tmp->next = 0;
 }
 
-void	double_rotate(t_list **stack_a, t_list **stack_b)
-{
-	rotate(stack_a);
-	rotate(stack_b);
-}
-
 void	rev_rotate(t_list **stack)
 {
 	t_list	*tmp;
@@ -41,10 +58,4 @@ void	rev_rotate(t_list **stack)
 	*stack = ft_lstlast(*stack);
 	ft_lstsecondtolast(tmp)->next = 0;
 	(*stack)->next = tmp;
-}
-
-void	dble_rev_rotate(t_list **stack_a, t_list **stack_b)
-{
-	rev_rotate(stack_a);
-	rev_rotate(stack_b);
 }

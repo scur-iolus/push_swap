@@ -6,7 +6,7 @@
 #    By: llalba <llalba@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/24 16:05:23 by llalba            #+#    #+#              #
-#    Updated: 2021/06/28 10:18:29 by llalba           ###   ########.fr        #
+#    Updated: 2021/06/28 18:36:01 by llalba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,8 +26,8 @@ H_FOLDER	= includes/
 
 SRCS_FILES	= \
 			$(SRCS_PATH)main.c \
-			$(SRCS_PATH)rotate.c \
-			$(SRCS_PATH)push_swap.c \
+			$(SRCS_PATH)operations.c \
+			$(SRCS_PATH)fast_sort.c \
 			$(SRCS_PATH)solver.c \
 			$(SRCS_PATH)utils.c
 

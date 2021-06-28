@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 16:04:48 by llalba            #+#    #+#             */
-/*   Updated: 2021/06/28 10:03:24 by llalba           ###   ########.fr       */
+/*   Updated: 2021/06/28 18:27:27 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@
 # include <stdlib.h>
 # include <sys/uio.h>
 # include <sys/types.h>
+#include <stdio.h> // ==================================================================
 
 /*
-** libft modifs: atoi, ft_lst*, ft_lstsecondtolast
+** libft modifs: atoi, ft_lst*, ft_lstsecondtolast, header
 */
 
 # include "../libft/libft.h"
@@ -39,22 +40,31 @@ void	lstdel(void *element);
 void	ft_error();
 void	free_str_ptr(char **ptr);
 short	is_int(char *str);
+void	execute(const char *str, t_stacks *s);
 
 /*
-** rotate.c
+** operations.c
 */
 
 void	rotate(t_list **stack);
-void	double_rotate(t_list **stack_a, t_list **stack_b);
 void	rev_rotate(t_list **stack);
-void	dble_rev_rotate(t_list **stack_a, t_list **stack_b);
+void	swap(t_list **stack);
+void	push(t_list **from, t_list **to);
 
 /*
-** push_swap.c
+** fast_sort.c
 */
 
-void	swap(t_list **stack);
-void	ss(t_list **stack_a, t_list **stack_b);
-void	push(t_list **from, t_list **to);
+short	sort2(t_stacks *s, char c);
+short	sort3_a(t_stacks *s);
+short	sort3_b(t_stacks *s);
+short	is_sorted(t_stacks *s);
+
+/*
+** solver.c
+*/
+
+void	quicksort(t_stacks *s);
+void	print_stack(t_list *tmp, const char *str); // ================================
 
 #endif

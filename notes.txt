@@ -19,7 +19,6 @@ https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-t
 
 http://phoenix.yizimg.com/topics/push-swap
 
-https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a
 
 https://www.youtube.com/watch?v=7KW59UO55TQ
 
@@ -36,7 +35,7 @@ Quick sort:
 
 
 Merge sort:
-
+- O(n*log(n))
 
 Insertion sort:
 - Supposed to solve the smallest sub-problem.

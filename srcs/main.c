@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 16:04:58 by llalba            #+#    #+#             */
-/*   Updated: 2021/06/28 10:05:48 by llalba           ###   ########.fr       */
+/*   Updated: 2021/06/28 18:35:33 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,11 @@ static int	ft_stacksize(int argc, char **argv)
 	return (size);
 }
 
-static short	is_new(t_list *tmp, void *content)
+static short	is_new(t_list *tmp, int nbr)
 {
 	while (tmp)
 	{
-		if ((int)(tmp->content) == (int)content)
+		if ((int)(tmp->content) == nbr)
 			return (0);
 		tmp = tmp->next;
 	}
@@ -56,7 +56,7 @@ static short	is_new(t_list *tmp, void *content)
 
 static short	is_valid_int(long long n, t_list **stack, char **split)
 {
-	if (n < -2147483648 || n > 2147483647 || !is_new(*stack, &n))
+	if (n < -2147483648 || n > 2147483647 || !is_new(*stack, (int)n))
 	{
 		free_str_ptr(split);
 		ft_lstclear(stack, lstdel);
@@ -92,9 +92,9 @@ static int	ft_load(t_list **stack, int argc, char **argv)
 	return (1);
 }
 
-static void	print_stack(t_list *tmp, const char *str) // =============================================================
+void	print_stack(t_list *tmp, const char *str) // =============================================================
 {
-	printf("\n%s\n>>>", str);
+	printf("%s >>>", str);
 	while (tmp)
 	{
 		printf(" %d", (int)(tmp->content));
@@ -123,10 +123,7 @@ int	main(int argc, char **argv)
 		////
 		print_stack(s.stack_a, "stack A");
 		print_stack(s.stack_b, "stack B");
-		push(&s.stack_a, &s.stack_b);
-		push(&s.stack_a, &s.stack_b);
-		push(&s.stack_a, &s.stack_b);
-		push(&s.stack_a, &s.stack_b);
+		quicksort(&s);
 		print_stack(s.stack_a, "stack A");
 		print_stack(s.stack_b, "stack B");
 		////
