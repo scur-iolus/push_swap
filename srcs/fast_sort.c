@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 11:12:44 by llalba            #+#    #+#             */
-/*   Updated: 2021/06/28 18:31:01 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/19 11:16:03 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ short	sort2(t_stacks *s, char c)
 	{
 		if (!s->stack_b || !s->stack_b->next)
 			return (0);
-		if (s->stack_b < s->stack_b->next)
+		if (s->stack_b > s->stack_b->next)
 			;
 		else
 			execute("sb", s);
@@ -99,6 +99,8 @@ short	is_sorted(t_stacks *s)
 		tmp = tmp->next;
 	}
 	tmp = s->stack_b;
+	if (!tmp)
+		return (1);
 	if ((int)tmp->content >= a_head)
 		return (0);
 	while (tmp->next)

@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 08:43:01 by llalba            #+#    #+#             */
-/*   Updated: 2021/06/28 18:35:32 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/19 12:14:56 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,32 @@ static short	in_upper_half(t_list *head, int n)
 	return (0);
 }
 
+void	move_b_top(t_stacks *s)
+{
+	int	b_len;
+
+	b_len = ft_lstsize(s->stack_b);
+	if (b_len >= 3)
+		if ((int)s->stack_b->content < (int)ft_lstlast(s->stack_b)->content)
+			execute("rb", s);
+	if (b_len >= 2)
+		if ((int)s->stack_b->content < (int)s->stack_b->next->content)
+			execute("sb", s);
+}
+
+void	move_a_top(t_stacks *s)
+{
+	int	a_len;
+
+	a_len = ft_lstsize(s->stack_a);
+	if (a_len >= 3)
+		if ((int)s->stack_a->content > (int)ft_lstlast(s->stack_a)->content)
+			execute("ra", s);
+	if (a_len >= 2)
+		if ((int)s->stack_a->content > (int)s->stack_a->next->content)
+			execute("sa", s);
+}
+
 void	a_to_b(char c, t_stacks *s)
 {
 	printf("========== Entree boucle\n"); // ====================================
@@ -73,7 +99,10 @@ void	a_to_b(char c, t_stacks *s)
 		if (ft_lstsize(s->stack_a) == 3)
 			sort3_a(s);
 		if (c == 'l' && in_lower_half(s->stack_a, (int)s->stack_a->content))
+		{
 			execute("pb", s);
+			move_b_top(s);
+		}
 		else if (c == 'u' && in_upper_half(s->stack_a, (int)s->stack_a->content))
 			execute("pb", s);
 		else
@@ -94,7 +123,10 @@ void	b_to_a(char c, t_stacks *s)
 		if (c == 'l' && in_lower_half(s->stack_b, (int)s->stack_b->content))
 			execute("pa", s);
 		else if (c == 'u' && in_upper_half(s->stack_b, (int)s->stack_b->content))
+		{
 			execute("pa", s);
+			move_a_top(s);
+		}
 		else
 			execute("rb", s);
 		print_stack(s->stack_a, "stack A"); // ====================================
@@ -107,10 +139,14 @@ void	b_to_a(char c, t_stacks *s)
 
 void	quicksort(t_stacks *s)
 {
-	while (!is_sorted(s))
+	short	test;
+
+	test = 0;
+	while (!is_sorted(s) && test < 200)
 	{
 		a_to_b('l', s);
 		b_to_a('u', s);
+		test++;
 	}
 }
 

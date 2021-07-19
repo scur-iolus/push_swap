@@ -1,3 +1,5 @@
+INT max + 1 a tester
+chaine de caractere vide
 Reitrer stdio et printf
 Ne pas oublier fsanitize=address
 
