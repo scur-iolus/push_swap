@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 16:04:58 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/19 12:15:12 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/19 16:02:50 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,11 +121,11 @@ int	main(int argc, char **argv)
 		if (ft_load(&s.stack_a, argc, argv) == -1)
 			ft_error();
 		////
-		print_stack(s.stack_a, "stack A");
-		print_stack(s.stack_b, "stack B");
+		// print_stack(s.stack_a, "stack A");
+		// print_stack(s.stack_b, "stack B");
 		quicksort(&s);
-		print_stack(s.stack_a, "stack A");
-		print_stack(s.stack_b, "stack B");
+		// print_stack(s.stack_a, "stack A");
+		// print_stack(s.stack_b, "stack B");
 		////
 		ft_lstclear(&s.stack_a, lstdel);
 		ft_lstclear(&s.stack_b, lstdel);

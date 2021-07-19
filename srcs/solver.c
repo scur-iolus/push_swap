@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 08:43:01 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/19 12:14:56 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/19 16:04:20 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static short	in_lower_half(t_list *head, int n)
 	if (curr_len <= init_len / 2 + init_len % 2)
 	{ // ===================================================
 		init_len = curr_len;
-		printf("new med\n"); // ===================================================
+		// printf("new med\n"); // ===================================================
 	} // ===================================================
 	while (head)
 	{
@@ -52,7 +52,7 @@ static short	in_upper_half(t_list *head, int n)
 	if (curr_len <= init_len / 2 + init_len % 2)
 	{ // ===================================================
 		init_len = curr_len;
-		printf("new med\n"); // ===================================================
+		// printf("new med\n"); // ===================================================
 	} // ===================================================
 	while (head)
 	{
@@ -93,8 +93,8 @@ void	move_a_top(t_stacks *s)
 
 void	a_to_b(char c, t_stacks *s)
 {
-	printf("========== Entree boucle\n"); // ====================================
-	while (s->stack_a->next)
+	// printf("========== Entree boucle\n"); // ====================================
+	while (!is_sorted(s) && s->stack_a->next)
 	{
 		if (ft_lstsize(s->stack_a) == 3)
 			sort3_a(s);
@@ -107,16 +107,16 @@ void	a_to_b(char c, t_stacks *s)
 			execute("pb", s);
 		else
 			execute("ra", s);
-		print_stack(s->stack_a, "stack A"); // ====================================
-		print_stack(s->stack_b, "stack B"); // =====================================
+		//print_stack(s->stack_a, "stack A"); // ====================================
+		//print_stack(s->stack_b, "stack B"); // =====================================
 	}
-	printf("========== Fin boucle\n"); // ====================================
+	// printf("========== Fin boucle\n"); // ====================================
 }
 
 void	b_to_a(char c, t_stacks *s)
 {
-	printf("========== Entree boucle\n"); // ====================================
-	while (s->stack_b->next)
+	// printf("========== Entree boucle\n"); // ====================================
+	while (!is_sorted(s) && s->stack_b->next)
 	{
 		if (ft_lstsize(s->stack_a) == 3)
 			sort3_a(s);
@@ -129,10 +129,10 @@ void	b_to_a(char c, t_stacks *s)
 		}
 		else
 			execute("rb", s);
-		print_stack(s->stack_a, "stack A"); // ====================================
-		print_stack(s->stack_b, "stack B"); // =====================================
+		//print_stack(s->stack_a, "stack A"); // ====================================
+		//print_stack(s->stack_b, "stack B"); // =====================================
 	}
-	printf("========== Fin boucle\n"); // ====================================
+	// printf("========== Fin boucle\n"); // ====================================
 }
 
 
