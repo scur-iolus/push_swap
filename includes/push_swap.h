@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 16:04:48 by llalba            #+#    #+#             */
-/*   Updated: 2021/06/28 18:27:27 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/22 19:11:20 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <sys/uio.h>
 # include <sys/types.h>
 #include <stdio.h> // ==================================================================
+# define THRESHOLD 90
 
 /*
 ** libft modifs: atoi, ft_lst*, ft_lstsecondtolast, header
@@ -29,6 +30,7 @@ typedef struct	s_stacks
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
+	t_list	*parts;
 	int		len;
 }				t_stacks;
 
@@ -64,7 +66,7 @@ short	is_sorted(t_stacks *s);
 ** solver.c
 */
 
-void	quicksort(t_stacks *s);
+void	solve(t_stacks *s);
 void	print_stack(t_list *tmp, const char *str); // ================================
 
 #endif

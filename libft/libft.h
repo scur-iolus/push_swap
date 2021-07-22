@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:57:38 by llalba            #+#    #+#             */
-/*   Updated: 2021/06/28 09:38:52 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/22 18:44:05 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,6 @@ t_list		*ft_lstlast(t_list *lst);
 t_list		*ft_lstsecondtolast(t_list *lst);
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 t_list		*ft_lstnew(void *content);
+t_list		*ft_lstpop(t_list **lst);
 int			ft_lstsize(t_list *lst);
 #endif

@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_lstpop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/20 15:02:52 by llalba            #+#    #+#             */
-/*   Updated: 2021/05/21 15:00:24 by llalba           ###   ########.fr       */
+/*   Created: 2021/07/22 18:42:54 by llalba            #+#    #+#             */
+/*   Updated: 2021/07/22 18:43:28 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_tolower(int c)
+t_list	*ft_lstpop(t_list **lst)
 {
-	if (c >= 65 && c <= 90)
-		c += 32;
-	return (c);
+	t_list	*top;
+
+	top = *lst;
+	if (lst && *lst)
+		*lst = (*lst)->next;
+	return (top);
 }

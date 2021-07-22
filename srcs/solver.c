@@ -6,77 +6,17 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 08:43:01 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/21 17:17:06 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/22 19:19:36 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include "../libft/libft.h"
 
-static short	in_lower_half(t_list *head, int n, int len)
+void	a_to_b(t_stacks *s, int init_len)
 {
-	int			i;
-
-	i = 0;
-	while (head)
-	{
-		if (n < (int)head->content)
-			i++;
-		if ((10 * (long)i) >= 10 * (long)len / 2)
-			return (1);
-		head = head->next;
-	}
-	return (0);
-}
-
-static short	in_upper_half(t_list *head, int n, int len)
-{
-	int			i;
-
-	i = 0;
-	while (head)
-	{
-		if (n > (int)head->content || len == 1)
-			i++;
-		if ((10 * (long)i) >= 10 * (long)len / 2)
-			return (1);
-		head = head->next;
-	}
-	return (0);
-}
-
-void	move_b_top(t_stacks *s)
-{
-	int	b_len;
-
-	b_len = ft_lstsize(s->stack_b);
-	if (b_len >= 3)
-		if ((int)s->stack_b->content < (int)ft_lstlast(s->stack_b)->content)
-			execute("rb", s);
-	if (b_len >= 2)
-		if ((int)s->stack_b->content < (int)s->stack_b->next->content)
-			execute("sb", s);
-}
-
-void	move_a_top(t_stacks *s)
-{
-	int	a_len;
-
-	a_len = ft_lstsize(s->stack_a);
-	if (a_len >= 3)
-		if ((int)s->stack_a->content > (int)ft_lstlast(s->stack_a)->content)
-			execute("ra", s);
-	if (a_len >= 2)
-		if ((int)s->stack_a->content > (int)s->stack_a->next->content)
-			execute("sa", s);
-}
-
-int	a_to_b(t_stacks *s)
-{
-	int		init_len;
 	int		curr_len;
 
-	init_len = ft_lstsize(s->stack_a);
 	curr_len = init_len;
 	while (!is_sorted(s) && curr_len > init_len / 2 + init_len % 2)
 	{
@@ -84,7 +24,7 @@ int	a_to_b(t_stacks *s)
 			sort3_a(s);
 		if (ft_lstsize(s->stck_b) == 3)
 			sort3_b(s);
-		if (in_lower_half(s->stack_a, (int)s->stack_a->content))
+		if (in_lower_half(s->stack_a, (int)s->stack_a->content, init_len))
 		{
 			execute("pb", s);
 			move_b_top(s);
@@ -93,7 +33,6 @@ int	a_to_b(t_stacks *s)
 			execute("ra", s);
 		curr_len = ft_lstsize(s->stack_a);
 	}
-	return (curr_len);
 }
 
 int	b_to_a(t_stacks *s)
@@ -109,11 +48,9 @@ int	b_to_a(t_stacks *s)
 			sort3_b(s);
 		if (ft_lstsize(s->stck_a) == 3)
 			sort3_a(s);
-		if (in_upper_half(s->stack_b, (int)s->stack_b->content))
-		{
-			execute("pa", s);
-			move_a_top(s);
-		}
+		if (in_upper_half(s->stack_b, (int)s->stack_b->content, init_len))
+			execute("pa", s); // move_a_top(s);
+			
 		else
 			execute("rb", s);
 		curr_len = ft_lstsize(s->stack_b);
@@ -123,6 +60,27 @@ int	b_to_a(t_stacks *s)
 
 void	insertion_sort(t_stacks *s, int deepth)
 {
+	t_list	*bottom;
+	t_list	*stop;
+
+	stop = ft_lstlast(s->stack_a);
+	while (deepth)
+	{
+		bottom = ft_lstlast(s->stack_a);
+		if ((int)s->stack_a->content > (int)s->stack_a->next->content)
+			execute("sa", s);
+		if (bottom == stop || (int)bottom->content < (int)s->stack_a->content)
+		{
+			execute("ra", s);
+			deepth--;
+		}
+		else
+		{
+			execute("rra", s);
+			deepth++;
+		}
+	}
+/*i
 	t_list	*tmp;
 	t_list	*min;
 	int		i;
@@ -145,30 +103,41 @@ void	insertion_sort(t_stacks *s, int deepth)
 	{
 		while ((int)min->content != (int)tmp->content)
 		{
+			tmp = tmp->next;
 			execute("pb", s);
 			move_b_top(s);
-			tmp = tmp->next;
 		}
 		execute("ra", s);
 		deepth--;
 	}
+*/
 }
 
-void	quicksort(t_stacks *s)
-{
-	if (!is_sorted(s))
-		(void)a_to_b(s);
-	while (!is_sorted(s) && b_to_a(s) > 0)
-		;
-	insertion_sort(s, );
-}
-
-/*
 void	solve(t_stacks *s)
 {
-	long	i;
+	int		b_len;
+	int		part_len;
 
-
+	ft_lstadd_front(&s->parts, ft_lstnew((void *)ft_lstsize(s->stack_a)));
+	while (!is_sorted(s))
+	{
+		if ((int)s->parts->content < THRESHOLD)
+		{
+			insertion_sort(s, (int)s->parts->content);
+			free(ft_lstpop(&s->parts));
+		}
+		else
+		{
+			a_to_b(s, (int)s->parts->content);
+			free(ft_lstpop(&s->parts));
+			b_len = ft_lstsize(s->stack_b);
+			while (!is_sorted(s) && b_len > 0)
+			{
+				part_len = b_len;
+				b_len = b_to_a(s);
+				part_len -= b_len;
+				ft_lstadd_front(&s->parts, ft_lstnew((void *)part_len));
+			}
+		}
+	}
 }
-*/
-
