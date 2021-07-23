@@ -6,7 +6,7 @@
 #    By: llalba <llalba@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/24 16:05:23 by llalba            #+#    #+#              #
-#    Updated: 2021/06/28 18:36:01 by llalba           ###   ########.fr        #
+#    Updated: 2021/07/23 11:05:51 by llalba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRCS_FILES	= \
 			$(SRCS_PATH)main.c \
 			$(SRCS_PATH)operations.c \
 			$(SRCS_PATH)fast_sort.c \
+			$(SRCS_PATH)merge_sort.c \
 			$(SRCS_PATH)solver.c \
 			$(SRCS_PATH)utils.c
 

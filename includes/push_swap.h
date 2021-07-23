@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 16:04:48 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/22 19:11:20 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/23 11:05:55 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ typedef struct	s_stacks
 	t_list	*parts;
 	int		len;
 }				t_stacks;
+
+void	print_stack(t_list *tmp, const char *str); // ================================
 
 /*
 ** utils.c
@@ -67,6 +69,11 @@ short	is_sorted(t_stacks *s);
 */
 
 void	solve(t_stacks *s);
-void	print_stack(t_list *tmp, const char *str); // ================================
+
+/*
+** merge_sort.c
+*/
+
+void	move_b_top(t_stacks *s);
 
 #endif

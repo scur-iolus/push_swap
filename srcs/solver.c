@@ -6,14 +6,14 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 08:43:01 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/22 19:19:36 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/23 11:02:59 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include "../libft/libft.h"
 
-void	a_to_b(t_stacks *s, int init_len)
+static void	a_to_b(t_stacks *s, int init_len)
 {
 	int		curr_len;
 
@@ -35,7 +35,7 @@ void	a_to_b(t_stacks *s, int init_len)
 	}
 }
 
-int	b_to_a(t_stacks *s)
+static int	b_to_a(t_stacks *s)
 {
 	int		init_len;
 	int		curr_len;
@@ -58,7 +58,7 @@ int	b_to_a(t_stacks *s)
 	return (curr_len);
 }
 
-void	insertion_sort(t_stacks *s, int deepth)
+static void	insertion_sort(t_stacks *s, int deepth)
 {
 	t_list	*bottom;
 	t_list	*stop;
