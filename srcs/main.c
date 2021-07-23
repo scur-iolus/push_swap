@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 16:04:58 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/19 16:02:50 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/23 15:34:54 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ int	main(int argc, char **argv)
 		////
 		// print_stack(s.stack_a, "stack A");
 		// print_stack(s.stack_b, "stack B");
-		quicksort(&s);
+		solve(&s);
 		// print_stack(s.stack_a, "stack A");
 		// print_stack(s.stack_b, "stack B");
 		////

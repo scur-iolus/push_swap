@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 16:04:48 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/23 11:05:55 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/23 17:01:49 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ void	solve(t_stacks *s);
 ** merge_sort.c
 */
 
-void	move_b_top(t_stacks *s);
+int		b_to_a(t_stacks *s);
+int		a_to_b(t_stacks *s, int init_len);
 
 #endif

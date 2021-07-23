@@ -6,7 +6,7 @@
 #    By: llalba <llalba@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/28 10:13:05 by llalba            #+#    #+#              #
-#    Updated: 2021/07/22 19:08:11 by llalba           ###   ########.fr        #
+#    Updated: 2021/07/23 11:21:03 by llalba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME =		libft.a
 
 SRCS =		ft_atoi.c \
 			ft_split.c \
-			ft_strlen.c
+			ft_strlen.c \
+			ft_putchar_fd.c
 
 OBJ =		${SRCS:.c=.o}
 
