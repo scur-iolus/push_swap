@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 16:04:58 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/23 15:34:54 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/24 17:13:07 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,10 @@ static int	ft_load(t_list **stack, int argc, char **argv)
 
 void	print_stack(t_list *tmp, const char *str) // =============================================================
 {
-	printf("%s >>>", str);
+	if (tmp)
+		printf("[%s] %d elem >>>", str, ft_lstsize(tmp));
+	else
+		printf("[%s] >>> vide.", str);
 	while (tmp)
 	{
 		printf(" %d", (int)(tmp->content));
@@ -121,14 +124,15 @@ int	main(int argc, char **argv)
 		if (ft_load(&s.stack_a, argc, argv) == -1)
 			ft_error();
 		////
-		// print_stack(s.stack_a, "stack A");
-		// print_stack(s.stack_b, "stack B");
+		print_stack(s.stack_a, "stack A");
+		print_stack(s.stack_b, "stack B");
 		solve(&s);
-		// print_stack(s.stack_a, "stack A");
-		// print_stack(s.stack_b, "stack B");
+		print_stack(s.stack_a, "stack A");
+		print_stack(s.stack_b, "stack B");
 		////
 		ft_lstclear(&s.stack_a, lstdel);
 		ft_lstclear(&s.stack_b, lstdel);
+		ft_lstclear(&s.parts, lstdel);
 	}
 	else
 		ft_error();

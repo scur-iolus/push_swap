@@ -6,13 +6,13 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 11:12:44 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/19 11:16:03 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/24 17:02:30 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include "../libft/libft.h"
-
+/*
 short	sort2(t_stacks *s, char c)
 {
 	if (c == 'a')
@@ -34,7 +34,7 @@ short	sort2(t_stacks *s, char c)
 			execute("sb", s);
 	}
 	return (1);
-}
+}*/
 
 static int	v(t_list *l)
 {
@@ -45,6 +45,7 @@ short	sort3_a(t_stacks *s)
 {
 	t_list	*a;
 
+	printf("=============== sort3_a ==============\n"); // ====
 	a = s->stack_a;
 	if (v(a) < v(a->next->next) && v(a->next->next) < v(a->next))
 		execute("sa", s);
@@ -62,7 +63,7 @@ short	sort3_a(t_stacks *s)
 		execute("sa", s);
 	return (1);
 }
-
+/*
 short	sort3_b(t_stacks *s) // ordre doit etre decroissant ici
 {
 	t_list	*b;
@@ -83,7 +84,7 @@ short	sort3_b(t_stacks *s) // ordre doit etre decroissant ici
 	if (v(b->next) < v(b) && v(b) < v(b->next->next))
 		execute("sb", s);
 	return (1);
-}
+}*/
 
 short	is_sorted(t_stacks *s)
 {

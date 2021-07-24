@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 08:43:01 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/23 17:02:51 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/24 17:40:43 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,20 @@ static void	insertion_sort(t_stacks *s, int deepth)
 	int		i;
 
 	printf("=============== insertion_sort ==============\n"); // ====
-	i = 1;
-	if (is_sorted(s))
+	if (deepth == 3 && ft_lstsize(s->stack_a) == 3)
+	{
+		sort3_a(s);
 		return ;
+	}
+	i = 1;
 	while (i <= deepth)
 	{
 		//print_stack(s->stack_a, "stack A"); // ====
 		//print_stack(s->stack_b, "stack B"); // ====
 		bottom = ft_lstlast(s->stack_a);
-		if (i < deepth && \
-				(int)s->stack_a->content > (int)s->stack_a->next->content)
-			execute("sa", s);
+		if (i < deepth)
+			if ((int)s->stack_a->content > (int)s->stack_a->next->content)
+				execute("sa", s);
 		if (i == 1 || (int)bottom->content < (int)s->stack_a->content)
 		{
 			execute("ra", s);
@@ -82,15 +85,18 @@ static void	merge_sort(t_stacks *s)
 	print_stack(s->stack_a, "stack A avant"); // ====
 	print_stack(s->stack_b, "stack B avant"); // ====
 	part_len = a_to_b(s, (int)s->parts->content);
+	printf("\n"); // ==
 	print_stack(s->stack_a, "stack A ATOB"); // ====
 	print_stack(s->stack_b, "stack B ATOB"); // ====
+	printf("\n"); // ==
 	ft_lstadd_front(&s->parts, ft_lstnew((void *)(size_t)part_len));
 	part_len = 2;
-	while (!is_sorted(s) && part_len > 1)
+	while (part_len > 1)
 	{
 		part_len = b_to_a(s);
 		ft_lstadd_front(&s->parts, ft_lstnew((void *)(size_t)part_len));
 	}
+	(void)b_to_a(s);
 	ft_lstadd_front(&s->parts, ft_lstnew((void *)(size_t)part_len));
 	print_stack(s->stack_a, "stack A apres"); // ====
 	print_stack(s->stack_b, "stack B apres"); // ====

@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 16:04:48 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/23 17:01:49 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/24 17:36:00 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <sys/uio.h>
 # include <sys/types.h>
 #include <stdio.h> // ==================================================================
-# define THRESHOLD 90
+# define THRESHOLD 22
 
 /*
 ** libft modifs: atoi, ft_lst*, ft_lstsecondtolast, header
@@ -59,9 +59,9 @@ void	push(t_list **from, t_list **to);
 ** fast_sort.c
 */
 
-short	sort2(t_stacks *s, char c);
+//short	sort2(t_stacks *s, char c);
 short	sort3_a(t_stacks *s);
-short	sort3_b(t_stacks *s);
+//short	sort3_b(t_stacks *s);
 short	is_sorted(t_stacks *s);
 
 /*
