@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 16:04:48 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/24 17:36:00 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/26 12:56:45 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <sys/uio.h>
 # include <sys/types.h>
 #include <stdio.h> // ==================================================================
-# define THRESHOLD 22
+# define THRESHOLD 11
 
 /*
 ** libft modifs: atoi, ft_lst*, ft_lstsecondtolast, header
@@ -31,7 +31,6 @@ typedef struct	s_stacks
 	t_list	*stack_a;
 	t_list	*stack_b;
 	t_list	*parts;
-	int		len;
 }				t_stacks;
 
 void	print_stack(t_list *tmp, const char *str); // ================================
@@ -59,10 +58,13 @@ void	push(t_list **from, t_list **to);
 ** fast_sort.c
 */
 
-//short	sort2(t_stacks *s, char c);
 short	sort3_a(t_stacks *s);
-//short	sort3_b(t_stacks *s);
-short	is_sorted(t_stacks *s);
+
+/*
+** insertion_sort.c
+*/
+
+void	insertion_sort_A(t_stacks *s, int deepth);
 
 /*
 ** solver.c
@@ -71,10 +73,16 @@ short	is_sorted(t_stacks *s);
 void	solve(t_stacks *s);
 
 /*
+** list_split.c
+*/
+
+short	in_upper_half(t_list *head, int len);
+short	in_lower_half(t_stacks *s, int top_len, int bottom_len, int len);
+
+/*
 ** merge_sort.c
 */
 
-int		b_to_a(t_stacks *s);
-int		a_to_b(t_stacks *s, int init_len);
+void	merge_sort(t_stacks *s);
 
 #endif

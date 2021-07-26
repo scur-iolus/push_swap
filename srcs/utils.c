@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 16:42:44 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/23 15:43:16 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/26 11:30:16 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,6 @@ void	execute(const char *str, t_stacks *s)
 		if (str[1] == 'r' && str[2] == 'b')
 			rev_rotate(&s->stack_b);
 	}
-	// write(1, str, ft_strlen(str));
-	// ft_putchar_fd('\n', 1);
+	write(1, str, ft_strlen(str));
+	ft_putchar_fd('\n', 1);
 }

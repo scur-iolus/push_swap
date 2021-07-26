@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 16:04:58 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/24 17:13:07 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/26 12:22:24 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,19 +116,18 @@ int	main(int argc, char **argv)
 	{
 		stack_a = 0;
 		stack_b = 0;
-		s.len = ft_stacksize(argc, argv);
-		if (s.len == -1)
+		if (ft_stacksize(argc, argv) == -1)
 			ft_error();
 		s.stack_a = stack_a;
 		s.stack_b = stack_b;
 		if (ft_load(&s.stack_a, argc, argv) == -1)
 			ft_error();
 		////
-		print_stack(s.stack_a, "stack A");
-		print_stack(s.stack_b, "stack B");
+		//printf("\n"); //=
 		solve(&s);
-		print_stack(s.stack_a, "stack A");
-		print_stack(s.stack_b, "stack B");
+		//printf("\n"); //=
+		//print_stack(s.stack_a, "stack A");
+		//print_stack(s.stack_b, "stack B");
 		////
 		ft_lstclear(&s.stack_a, lstdel);
 		ft_lstclear(&s.stack_b, lstdel);
