@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 16:04:48 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/26 12:56:45 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/26 16:31:35 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@
 # include <sys/uio.h>
 # include <sys/types.h>
 #include <stdio.h> // ==================================================================
-# define THRESHOLD 11
+# ifndef THRESHOLD
+#  define THRESHOLD 33
+# endif
 
 /*
 ** libft modifs: atoi, ft_lst*, ft_lstsecondtolast, header
@@ -65,6 +67,7 @@ short	sort3_a(t_stacks *s);
 */
 
 void	insertion_sort_A(t_stacks *s, int deepth);
+void	insertion_sort_AB(t_stacks *s, int deepth);
 
 /*
 ** solver.c

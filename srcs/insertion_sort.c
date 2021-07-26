@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 12:08:59 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/26 13:00:21 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/26 16:27:03 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,34 +42,101 @@ void	insertion_sort_A(t_stacks *s, int deepth)
 	}
 }
 
-/*i
+static void	update_min(t_list **min, t_list *tmp, int *pos, int i)
+{
+	if (!(*min) || (int)(*min)->content > (int)tmp->content)
+	{
+		*min = tmp;
+		*pos = i;
+	}
+}
+
+static int	get_min_pos(t_stacks *s, int a_deepth)
+{
+	int		i;
+	int		pos;
 	t_list	*tmp;
 	t_list	*min;
-	int		i;
 
-	if (!ft_lstsize(s->stack_a))
-		return ;
 	i = 0;
-	tmp = s->stack_a;
-	min = tmp;
-	while (i < deepth)
+	if (a_deepth)
+		tmp = s->stack_a;
+	min = 0;
+	while (i < a_deepth)
 	{
-		if ((int)min->content > (int)tmp->content)
-			min = tmp;
+		update_min(&min, tmp, &pos, i);
 		i++;
 		tmp = tmp->next;
 	}
-	tmp = s->stack_a;
-	i = 0;
-	while (deepth)
+
+	tmp = s->stack_b;
+	i = -1;
+	while (tmp)
 	{
-		while ((int)min->content != (int)tmp->content)
-		{
-			tmp = tmp->next;
-			execute("pb", s);
-			move_b_top(s);
-		}
-		execute("ra", s);
-		deepth--;
+		update_min(&min, tmp, &pos, i);
+		i--;
+		tmp = tmp->next;
 	}
-*/
+	return (pos);
+}
+
+static void	shift_min_B(t_stacks *s, int *b_deepth, int *a_deepth, int *min_pos)
+{
+	int	worst_case;
+
+	worst_case = (*b_deepth) / 2;
+	//printf("worst_case : %d, min_pos :%d\n", worst_case, *min_pos); //=
+	//print_stack(s->stack_a, "stack a"); //==
+	//print_stack(s->stack_b, "stack b"); //==
+	if (*min_pos == -1 || worst_case + 1 > *a_deepth - 1)
+	{
+		(*b_deepth)--;
+		(*a_deepth)++;
+		execute("pa", s);
+		(*min_pos)++;
+	}
+	else if (worst_case > -(*min_pos) / 2)
+	{
+		execute("rb", s);
+		(*min_pos)++;
+	}
+	else
+	{
+		execute("rrb", s);
+		(*min_pos)--;
+		if (*min_pos < -(*b_deepth))
+			*min_pos = -1;
+	}
+}
+
+void	insertion_sort_AB(t_stacks *s, int deepth)
+{
+	int		a_deepth;
+	int		b_deepth;
+	int		min_pos;
+
+	a_deepth = deepth;
+	b_deepth = 0;
+	while (a_deepth + b_deepth)
+	{
+		min_pos = get_min_pos(s, a_deepth);
+		//printf("a_deepth %d, b_deepth %d, min_pos %d\n", a_deepth, b_deepth, min_pos); //=
+		//print_stack(s->stack_a, "stack a"); //==
+		//print_stack(s->stack_b, "stack b"); //==
+		while (min_pos)
+		{
+			if (min_pos < 0)
+				shift_min_B(s, &b_deepth, &a_deepth, &min_pos);
+			else
+			{
+				a_deepth--;
+				b_deepth++;
+				execute("pb", s);
+				min_pos--;
+			}
+		}
+		a_deepth--;
+		if (s->stack_a->next)
+			execute("ra", s);
+	}
+}

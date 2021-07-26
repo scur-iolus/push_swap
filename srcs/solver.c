@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 08:43:01 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/26 12:57:21 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/26 14:55:44 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	solve(t_stacks *s)
 	{
 		if ((int)s->parts->content < THRESHOLD)
 		{
-			insertion_sort_A(s, (int)s->parts->content);
+			insertion_sort_AB(s, (int)s->parts->content);
 			free(ft_lstpop(&s->parts));
 		}
 		else
