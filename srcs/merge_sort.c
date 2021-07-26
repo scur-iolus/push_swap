@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 19:18:03 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/26 12:59:54 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/26 18:47:33 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,19 +35,20 @@ static void	rewind_a(int i, t_stacks *s)
 	}
 }
 
-static int	a_to_b(t_stacks *s, int deepth)
+static int	a_to_b(t_stacks *s, int depth)
 {
-	int	part_len;
-	int	bottom_len;
-	int	i;
+	int				part_len;
+	int				bottom_len;
+	int				i;
+	static short	first_time = 1;
 
 	free(ft_lstpop(&s->parts));
 	i = 0;
-	part_len = deepth;
+	part_len = depth;
 	bottom_len = 0;
-	while (i < deepth)
+	while (i < depth)
 	{
-		if (in_lower_half(s, part_len - bottom_len, bottom_len, deepth))
+		if (in_lower_half(s, part_len - bottom_len, bottom_len, depth))
 		{
 			execute("pb", s);
 			part_len--;
@@ -60,7 +61,9 @@ static int	a_to_b(t_stacks *s, int deepth)
 		}
 		i++;
 	}
-	rewind_a(bottom_len, s);
+	if (!first_time)
+		rewind_a(bottom_len, s);
+	first_time = 0;
 	return (part_len);
 }
 
