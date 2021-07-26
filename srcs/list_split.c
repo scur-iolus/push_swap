@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 12:08:53 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/26 13:00:40 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/26 16:53:44 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ short	in_upper_half(t_list *head, int len)
 {
 	int			i;
 	int			n;
-	int			deepth;
 
 	i = 0;
 	n = (int)head->content;
