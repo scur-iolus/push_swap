@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 19:18:03 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/26 18:47:33 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/27 17:17:54 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,10 +98,10 @@ void	merge_sort(t_stacks *s)
 
 	part_len = a_to_b(s, (int)s->parts->content);
 	ft_lstadd_front(&s->parts, ft_lstnew((void *)(size_t)part_len));
-	while (part_len)
+	while (part_len > 0)
 	{
 		part_len = b_to_a(s);
-		if (part_len)
+		if (part_len > 0)
 			ft_lstadd_front(&s->parts, ft_lstnew((void *)(size_t)part_len));
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 16:04:48 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/26 18:49:12 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/27 17:32:36 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <sys/types.h>
 #include <stdio.h> // ==================================================================
 # ifndef THRESHOLD
-#  define THRESHOLD 23
+#  define THRESHOLD 33
 # endif
 
 /*
@@ -60,7 +60,9 @@ void	push(t_list **from, t_list **to);
 ** fast_sort.c
 */
 
-short	sort3_a(t_stacks *s);
+void	rotate_a(t_stacks *s, int i);
+short	sort3_a(t_list *a, int a_len, t_stacks *s);
+short	sort3_b(t_list *b, int b_len, t_stacks *s);
 
 /*
 ** insertion_sort.c
