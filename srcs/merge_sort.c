@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 19:18:03 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/27 17:17:54 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/27 17:50:07 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ static int	b_to_a(t_stacks *s)
 	init_len = ft_lstsize(s->stack_b);
 	if (!init_len)
 		return (0);
+	if (init_len == 3)
+		return (-sort3_b(s->stack_b, init_len, s));
 	curr_len = init_len;
 	i = 0;
 	while (i < init_len)
@@ -103,5 +105,16 @@ void	merge_sort(t_stacks *s)
 		part_len = b_to_a(s);
 		if (part_len > 0)
 			ft_lstadd_front(&s->parts, ft_lstnew((void *)(size_t)part_len));
+	}
+	if (!part_len)
+		return ;
+	execute("pa", s);
+	execute("pa", s);
+	if (part_len == -3)
+		execute("pa", s);
+	while (part_len)
+	{
+		execute("ra", s);
+		part_len++;
 	}
 }
