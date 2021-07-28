@@ -6,7 +6,7 @@
 #    By: llalba <llalba@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/28 10:13:05 by llalba            #+#    #+#              #
-#    Updated: 2021/07/23 11:21:03 by llalba           ###   ########.fr        #
+#    Updated: 2021/07/28 16:01:26 by llalba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,8 @@ BONUS =		ft_lstnew.c \
 			ft_lstsecondtolast.c \
 			ft_lstadd_back.c \
 			ft_lstdelone.c \
+			ft_lstintmin.c \
+			ft_lstintmax.c \
 			ft_lstclear.c \
 			ft_lstiter.c \
 			ft_lstmap.c \

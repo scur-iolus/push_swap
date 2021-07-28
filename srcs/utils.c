@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 16:42:44 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/26 11:30:16 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/28 10:45:28 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,20 @@ void	ft_error()
 	exit(EXIT_FAILURE);
 }
 
-void	free_str_ptr(char **ptr)
+int	free_str_ptr(char ***ptr)
 {
 	int	i;
 
 	i = 0;
-	while (ptr[i])
+	while ((*ptr)[i])
 	{
-		free(ptr[i]);
-		ptr[i] = 0;
+		free((*ptr)[i]);
+		(*ptr)[i] = 0;
 		i++;
 	}
-	free(ptr);
+	free(*ptr);
 	ptr = 0;
+	return (-1);
 }
 
 short	is_int(char *str)

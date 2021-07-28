@@ -1,30 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fast_sort.c                                        :+:      :+:    :+:   */
+/*   sort3.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 11:12:44 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/27 17:32:22 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/28 16:17:12 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include "../libft/libft.h"
 
-void	rotate_a(t_stacks *s, int i)
+short	sort3(t_stacks *s, t_list *a)
 {
-	while (i)
-	{
-		execute("ra", s);
-		i--;
-	}
-}
+	short	case_3_1_2;
+	short	case_1_3_2;
+	short	case_3_2_1;
+	short	case_2_3_1;
+	short	case_2_1_3;
 
-static int	v(t_list *l)
-{
-	return ((int)(l->content));
+	if (!a || !a->next || !a->next->next || a->next->next->next)
+		return (0);
+	case_3_1_2 = (v(a) > v(a->next->next) && v(a->next->next) > v(a->next));
+	case_1_3_2 = (v(a->next) > v(a->next->next) && v(a->next->next) > v(a));
+	case_3_2_1 = (v(a) > v(a->next) && v(a->next) > v(a->next->next));
+	case_2_3_1 = (v(a->next) > v(a) && v(a) > v(a->next->next));
+	case_2_1_3 = (v(a->next->next) > v(a) && v(a) > v(a->next));
+	if (case_2_1_3 || case_1_3_2 || case_3_2_1)
+		execute("sa", s);
+	if (case_1_3_2 || case_3_1_2)
+		execute("ra", s);
+	if (case_3_2_1 || case_2_3_1)
+		execute("rra", s);
+	return (1);
 }
 
 short	sort3_a(t_list *a, int a_len, t_stacks *s)

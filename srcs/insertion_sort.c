@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 12:08:59 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/27 17:35:32 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/28 09:29:17 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,11 +93,6 @@ void	insertion_sort_AB(t_stacks *s, int depth)
 
 	a_depth = depth;
 	b_depth = 0;
-	if (sort3_a(s->stack_a, a_depth, s))
-	{
-		rotate_a(s, 3);
-		return ;
-	}
 	while (a_depth + b_depth)
 	{
 		min_pos = get_min_pos(s, a_depth);
