@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 16:04:48 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/28 17:29:54 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/28 18:03:44 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ short	sort3_a(t_list *a, int a_len, t_stacks *s);
 short	sort3_b(t_list *b, int b_len, t_stacks *s);
 short	sort4_a(int a_len, t_stacks *s);
 short	sort5(t_stacks *s);
-short	sort5_a(t_list *a, int a_len, t_stacks *s); //=
+short	sort5_a(int a_len, t_stacks *s);
 
 /*
 ** insertion_sort.c

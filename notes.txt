@@ -1,3 +1,4 @@
+CHANGER DE BRANCHE ET PASSER EN MASTER
 optimiser quand s->len == 3 ou 5
 INT max + 1 a tester
 chaine de caractere vide

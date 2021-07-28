@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 09:20:28 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/28 17:23:55 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/28 18:02:44 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,24 @@ short	sort5(t_stacks *s)
 	return (1);
 }
 
-/*
-short	sort5_a(t_list *a, int a_len, t_stacks *s)
+short	sort5_a(int a_len, t_stacks *s)
 {
+	int	i;
+
+	i = 5;
+	if (a_len != i)
+		return (0);
+	execute("pb", s);
+	execute("pb", s);
+	sort3_a(s->stack_a, 3, s);
+	if (v(s->stack_b) > v(s->stack_b->next))
+		execute("sb", s);
+	while (i)
+	{
+		if (s->stack_b && ((v(s->stack_a) > v(s->stack_b)) || i == 1))
+			execute("pa", s);
+		execute("ra", s);
+		i--;
+	}
+	return (1);
 }
-*/

@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 08:43:01 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/28 17:28:08 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/28 18:14:44 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,19 +100,31 @@ void	solve(t_stacks *s)
 	while (!is_sorted(s))
 	{
 		len = (int)s->parts->content;
+		//print_stack(s->parts, "parts "); //===
 		if (len < THRESHOLD)
 		{
 			if (sort3(s, s->stack_a) || sort5(s))
 				return ;
 			else if (sort3_a(s->stack_a, len, s))
+			{
+				//printf("========== sort3_a =========\n"); //===========
 				rotate_a(s, 3);
+			}
 			else if (sort4_a(len, s))
-				;
+				;//printf("========== sort4_a =========\n"); //===========
+			else if (sort5_a(len, s))
+				;//printf("========== sort5_a =========\n"); //===========
 			else
+			{
 				insertion_sort_AB(s, len);
+				//printf("========== classic insert =========\n"); //===========
+			}
 			free(ft_lstpop(&s->parts));
 		}
 		else
+		{
+			//printf("========== MERGE SORT =========\n"); //===========
 			merge_sort(s);
+		}
 	}
 }
