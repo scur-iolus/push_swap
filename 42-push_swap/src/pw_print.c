@@ -6,7 +6,7 @@
 /*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/03 13:58:58 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/05/13 15:54:26 by rnugroho         ###   ########.fr       */
+/*   Updated: 2021/07/29 16:45:34 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int
 static void
 	pw_print_delay(void)
 {
-	system("sleep 0.05");
+	system("sleep 0.3");
 	ft_printf("%0.0v");
 }
 

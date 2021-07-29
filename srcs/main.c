@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 16:04:58 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/29 14:51:42 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/29 18:50:43 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,20 +77,6 @@ static int	ft_load(t_list **stack, int argc, char **argv)
 	return (1);
 }
 
-void	print_stack(t_list *tmp, const char *str) // =============================================================
-{
-	if (tmp)
-		printf("[%s] %d elem >>>", str, ft_lstsize(tmp));
-	else
-		printf("[%s] >>> vide.", str);
-	while (tmp)
-	{
-		printf(" %d", (int)(tmp->content));
-		tmp = tmp->next;
-	}
-	printf("\n");
-}
-
 int	main(int argc, char **argv)
 {
 	t_list		*stack_a;
@@ -112,8 +98,6 @@ int	main(int argc, char **argv)
 		ft_error();
 	}
 	solve(&s);
-	//print_stack(s.stack_a, "A"); // =
-	//print_stack(s.stack_b, "B"); //= 
 	ft_lstclear(&s.stack_a, lstdel);
 	ft_lstclear(&s.stack_b, lstdel);
 	ft_lstclear(&s.parts, lstdel);

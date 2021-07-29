@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 08:49:36 by llalba            #+#    #+#             */
-/*   Updated: 2021/06/28 11:50:08 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/29 18:51:30 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	swap(t_list **stack)
 void	push(t_list **from, t_list **to)
 {
 	t_list	*tmp;
-	
+
 	if (*from == 0)
 		return ;
 	tmp = (*from)->next;

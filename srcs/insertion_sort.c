@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 12:08:59 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/29 15:37:53 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/29 18:49:37 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ static int	get_min_pos(t_stacks *s, int a_depth)
 		i++;
 		tmp = tmp->next;
 	}
-
 	tmp = s->stack_b;
 	i = -1;
 	while (tmp)

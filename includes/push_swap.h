@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 16:04:48 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/29 15:40:13 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/29 18:49:03 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,12 @@
 # include <stdlib.h>
 # include <sys/uio.h>
 # include <sys/types.h>
-#include <stdio.h> // ==================================================================
 # ifndef THRESHOLD
 #  define THRESHOLD 33
 # endif
 # include "../libft/libft.h"
 
-typedef struct	s_stacks
+typedef struct s_stacks
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
@@ -31,14 +30,12 @@ typedef struct	s_stacks
 	long	len;
 }				t_stacks;
 
-void	print_stack(t_list *tmp, const char *str); // ================================
-
 /*
 ** utils.c
 */
 
 void	lstdel(void *element);
-void	ft_error();
+void	ft_error(void);
 int		free_str_ptr(char ***ptr);
 short	is_int(char *str);
 void	execute(const char *str, t_stacks *s);

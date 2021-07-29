@@ -6,7 +6,7 @@
 /*   By: rnugroho <rnugroho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/26 14:30:36 by rnugroho          #+#    #+#             */
-/*   Updated: 2018/04/22 12:23:45 by rnugroho         ###   ########.fr       */
+/*   Updated: 2021/07/29 16:27:23 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,10 +84,10 @@ static int
 		pw_checker(line, a, b);
 		if (ARRAY_DATA(opt, OPT_V) && (a->size + b->size) <= 100 &&
 			pw_get_max(a) <= 100 && pw_get_max(b) <= 100 &&
-			pw_get_max(a) >= -100 && pw_get_max(b) >= -100)
+			pw_get_max(a) >= -100 && pw_get_max(b) >= -100) // =========================
 		{
-			pw_print_stack(a, b, opt);
-			ft_printfln("Exec %s:", line);
+			pw_print_stack(a, b, opt); //=
+			ft_printfln("Exec %s:", line); //==
 		}
 		free(line);
 		i++;

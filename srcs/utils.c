@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 16:42:44 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/29 17:38:15 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/29 18:52:10 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	lstdel(void *element)
 	element = 0;
 }
 
-void	ft_error()
+void	ft_error(void)
 {
 	write(2, "Error\n", 7);
 	exit(EXIT_FAILURE);

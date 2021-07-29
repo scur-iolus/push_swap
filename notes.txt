@@ -46,6 +46,22 @@ void	insertion_sort_A(t_stacks *s, int depth)
 
 
 
+void	print_stack(t_list *tmp, const char *str) // =============================================================
+{
+	if (tmp)
+		printf("[%s] %d elem >>>", str, ft_lstsize(tmp));
+	else
+		printf("[%s] >>> vide.", str);
+	while (tmp)
+	{
+		printf(" %d", (int)(tmp->content));
+		tmp = tmp->next;
+	}
+	printf("\n");
+}
+
+
+
 
 
 static void	move_b_top(t_stacks *s)

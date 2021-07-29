@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 19:18:03 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/29 17:42:26 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/29 18:51:10 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	get_b_max_pos(t_stacks *s)
 static void	rewind_a(int i, t_stacks *s)
 {
 	static short	first_time = 1;
-	
+
 	if (first_time)
 	{
 		first_time = 0;
