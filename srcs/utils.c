@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 16:42:44 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/28 18:13:50 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/29 17:38:15 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,9 @@ void	execute(const char *str, t_stacks *s)
 			rotate(&s->stack_a);
 		if (str[1] == 'b' || (str[1] == 'r' && !str[2]))
 			rotate(&s->stack_b);
-		if (str[1] == 'r' && str[2] == 'a')
+		if ((str[1] == 'r' && str[2] == 'a') || str[2] == 'r')
 			rev_rotate(&s->stack_a);
-		if (str[1] == 'r' && str[2] == 'b')
+		if ((str[1] == 'r' && str[2] == 'b') || str[2] == 'r')
 			rev_rotate(&s->stack_b);
 	}
 	write(1, str, ft_strlen(str));

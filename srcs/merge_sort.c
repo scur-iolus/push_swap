@@ -6,18 +6,51 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 19:18:03 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/29 16:02:28 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/29 17:42:26 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include "../libft/libft.h"
 
+static int	get_b_max_pos(t_stacks *s)
+{
+	int		i;
+	int		pos;
+	t_list	*tmp;
+	t_list	*max;
+
+	max = 0;
+	tmp = s->stack_b;
+	i = -1;
+	while (tmp)
+	{
+		if (!max || (int)max->content < (int)tmp->content)
+		{
+			max = tmp;
+			pos = i;
+		}
+		i--;
+		tmp = tmp->next;
+	}
+	return (pos);
+}
+
 static void	rewind_a(int i, t_stacks *s)
 {
+	static short	first_time = 1;
+	
+	if (first_time)
+	{
+		first_time = 0;
+		return ;
+	}
 	while (i)
 	{
-		execute("rra", s);
+		if (get_b_max_pos(s) != -1)
+			execute("rrr", s);
+		else
+			execute("rra", s);
 		i--;
 	}
 }
@@ -27,7 +60,6 @@ static int	a_to_b(t_stacks *s, int depth)
 	int				part_len;
 	int				bottom_len;
 	int				i;
-	static short	first_time = 1;
 
 	free(ft_lstpop(&s->parts));
 	i = 0;
@@ -39,7 +71,6 @@ static int	a_to_b(t_stacks *s, int depth)
 		{
 			execute("pb", s);
 			part_len--;
-			//move_b_top(s);
 		}
 		else
 		{
@@ -48,9 +79,7 @@ static int	a_to_b(t_stacks *s, int depth)
 		}
 		i++;
 	}
-	if (!first_time)
-		rewind_a(bottom_len, s);
-	first_time = 0;
+	rewind_a(bottom_len, s);
 	return (part_len);
 }
 
