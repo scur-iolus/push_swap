@@ -6,25 +6,12 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 19:18:03 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/27 17:50:07 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/29 16:02:28 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include "../libft/libft.h"
-
-static void	move_b_top(t_stacks *s)
-{
-	int	b_len;
-
-	b_len = ft_lstsize(s->stack_b);
-	if (b_len >= 3)
-		if ((int)s->stack_b->content < (int)ft_lstlast(s->stack_b)->content)
-			execute("rb", s);
-	if (b_len >= 2)
-		if ((int)s->stack_b->content < (int)s->stack_b->next->content)
-			execute("sb", s);
-}
 
 static void	rewind_a(int i, t_stacks *s)
 {
@@ -52,7 +39,7 @@ static int	a_to_b(t_stacks *s, int depth)
 		{
 			execute("pb", s);
 			part_len--;
-			move_b_top(s);
+			//move_b_top(s);
 		}
 		else
 		{
@@ -112,9 +99,7 @@ void	merge_sort(t_stacks *s)
 	execute("pa", s);
 	if (part_len == -3)
 		execute("pa", s);
-	while (part_len)
-	{
-		execute("ra", s);
-		part_len++;
-	}
+	execute("ra", s);
+	execute("ra", s);
+	execute("ra", s);
 }

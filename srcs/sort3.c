@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 11:12:44 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/28 16:17:12 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/29 15:38:53 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,11 +84,11 @@ short	sort3_b(t_list *b, int b_len, t_stacks *s)
 	if (case_1_3_2 || case_1_2_3)
 		execute("sb", s);
 	if (case_1_2_3 || case_2_1_3 || case_1_3_2 || case_3_1_2)
-	{
 		execute("pa", s);
+	if (case_1_2_3 || case_2_1_3 || case_1_3_2 || case_3_1_2)
 		execute("sb", s);
+	if (case_1_2_3 || case_2_1_3 || case_1_3_2)
 		execute("pb", s);
-	}
 	if (case_1_2_3 || case_2_1_3 || case_2_3_1)
 		execute("sb", s);
 	return (3 - case_3_1_2);

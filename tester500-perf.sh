@@ -10,10 +10,10 @@ test()
 }
 
 
-END=64
+END=100
 rm -f meta_test
 >meta_test
-for ((j=30;j<=END;j+=1)); do
+for ((j=10;j<=END;j+=1)); do
     make -s clean
     rm -f push_swap_loop
     rm -f output

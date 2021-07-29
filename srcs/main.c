@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 16:04:58 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/28 17:31:47 by llalba           ###   ########.fr       */
+/*   Updated: 2021/07/29 14:51:42 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int	main(int argc, char **argv)
 	t_stacks	s;
 
 	if (argc <= 1)
-		ft_error();
+		return (0);
 	stack_a = 0;
 	stack_b = 0;
 	s.len = ft_stacksize(argc, argv);
