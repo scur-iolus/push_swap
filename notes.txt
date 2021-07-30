@@ -1,16 +1,9 @@
 CHANGER DE BRANCHE ET PASSER EN MASTER
-optimiser quand s->len == 3 ou 5
 INT max + 1 a tester
 chaine de caractere vide
-Reitrer stdio et printf
-Ne pas oublier fsanitize=address
-pas de rotation si 1 seul element dans la pile
-
-
-
 
 /*
-** libft modifs: atoi, ft_lst*, ft_lstsecondtolast, header, min max lst
+** libft modifs: atoi, ft_lst*, ft_lstsecondtolast, header, min max lst, split si chaine vide ""
 */
 
 
