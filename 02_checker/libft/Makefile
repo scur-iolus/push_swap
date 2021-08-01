@@ -6,7 +6,7 @@
 #    By: llalba <llalba@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/28 10:13:05 by llalba            #+#    #+#              #
-#    Updated: 2021/07/30 16:05:52 by llalba           ###   ########.fr        #
+#    Updated: 2021/08/01 14:08:40 by llalba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ BONUS =		ft_lstnew.c \
 			ft_lstiter.c \
 			ft_lstmap.c \
 			ft_strcmp.c \
+			v.c \
 			ft_lstpop.c
 
 $(NAME):	${OBJ}

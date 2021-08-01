@@ -14,7 +14,7 @@
 
 static void	update_min(t_list **min, t_list *tmp, int *pos, int i)
 {
-	if (!(*min) || (int)(*min)->content > (int)tmp->content)
+	if (!(*min) || v(*min) > v(tmp))
 	{
 		*min = tmp;
 		*pos = i;

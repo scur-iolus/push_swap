@@ -24,7 +24,7 @@ static int	get_b_max_pos(t_stacks *s)
 	i = -1;
 	while (tmp)
 	{
-		if (!max || (int)max->content < (int)tmp->content)
+		if (!max || v(max) < v(tmp))
 		{
 			max = tmp;
 			pos = i;
@@ -113,7 +113,7 @@ void	merge_sort(t_stacks *s)
 {
 	int		part_len;
 
-	part_len = a_to_b(s, (int)s->parts->content);
+	part_len = a_to_b(s, v(s->parts));
 	ft_lstadd_front(&s->parts, ft_lstnew((void *)(size_t)part_len));
 	while (part_len > 0)
 	{

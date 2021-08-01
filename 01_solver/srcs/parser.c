@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 16:21:00 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/30 16:49:32 by llalba           ###   ########.fr       */
+/*   Updated: 2021/08/01 14:17:39 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static short	is_new(t_list *tmp, int nbr)
 {
 	while (tmp)
 	{
-		if ((int)(tmp->content) == nbr)
+		if (v(tmp) == nbr)
 			return (0);
 		tmp = tmp->next;
 	}

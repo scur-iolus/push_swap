@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 12:08:53 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/30 15:41:27 by llalba           ###   ########.fr       */
+/*   Updated: 2021/08/01 14:18:48 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	vs_B(t_stacks *s, int *i, int n)
 	tmp = s->stack_b;
 	while (tmp)
 	{
-		if (n < (int)tmp->content)
+		if (n < v(tmp))
 			(*i)++;
 		tmp = tmp->next;
 	}
@@ -29,7 +29,7 @@ static void	vs_A_top(int top_len, int *i, int n, t_list **tmp)
 {
 	while (top_len)
 	{
-		if (n < (int)(*tmp)->content)
+		if (n < v(*tmp))
 			(*i)++;
 		*tmp = (*tmp)->next;
 		top_len--;
@@ -40,7 +40,7 @@ static void	vs_A_bottom(int bottom_len, int *i, int n, t_list *tmp)
 {
 	while (bottom_len)
 	{
-		if (n < (int)tmp->content)
+		if (n < v(tmp))
 			(*i)++;
 		tmp = tmp->next;
 		bottom_len--;
@@ -55,7 +55,7 @@ short	in_lower_half(t_stacks *s, int top_len, int bottom_len, int len)
 	t_list		*tmp;
 
 	i = 0;
-	n = (int)s->stack_a->content;
+	n = v(s->stack_a);
 	vs_B(s, &i, n);
 	if ((10 * (long)i) >= 10 * (long)len / 2)
 		return (1);
@@ -81,10 +81,10 @@ short	in_upper_half(t_list *head, int len)
 	int			n;
 
 	i = 0;
-	n = (int)head->content;
+	n = v(head);
 	while (head)
 	{
-		if (n >= (int)head->content)
+		if (n >= v(head))
 			i++;
 		if ((10 * (long)i) > 10 * (long)len / 2)
 			return (1);

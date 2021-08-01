@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 10:37:02 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/30 17:04:54 by llalba           ###   ########.fr       */
+/*   Updated: 2021/08/01 14:33:35 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ static int	stdin_parsing(t_stacks *s)
 	return (1);
 }
 
+#include <stdio.h>
+
 static void	verdict(t_stacks *s, short parsing_OK)
 {
 	short	is_KO;
@@ -80,7 +82,7 @@ static void	verdict(t_stacks *s, short parsing_OK)
 		tmp = s->stack_a;
 		while (tmp->next && !is_KO)
 		{
-			if ((int)tmp->content >= (int)tmp->next->content)
+			if (v(tmp) >= v(tmp->next))
 				is_KO = 1;
 			tmp = tmp->next;
 		}

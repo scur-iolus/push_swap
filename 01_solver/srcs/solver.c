@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 08:43:01 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/30 15:41:53 by llalba           ###   ########.fr       */
+/*   Updated: 2021/08/01 14:18:23 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,32 +56,27 @@ static void	rotate_a(t_stacks *s, int i)
 	}
 }
 
-int	v(t_list *l)
-{
-	return ((int)(l->content));
-}
-
 short	is_sorted(t_stacks *s)
 {
 	t_list	*tmp;
 	int		a_head;
 
 	tmp = s->stack_a;
-	a_head = (int)tmp->content;
+	a_head = v(tmp);
 	while (tmp->next)
 	{
-		if ((int)tmp->content >= (int)tmp->next->content)
+		if (v(tmp) >= v(tmp->next))
 			return (0);
 		tmp = tmp->next;
 	}
 	tmp = s->stack_b;
 	if (!tmp)
 		return (1);
-	if ((int)tmp->content >= a_head)
+	if (v(tmp) >= a_head)
 		return (0);
 	while (tmp->next)
 	{
-		if ((int)tmp->content <= (int)tmp->next->content)
+		if (v(tmp) <= v(tmp->next))
 			return (0);
 		tmp = tmp->next;
 	}
@@ -98,7 +93,7 @@ void	solve(t_stacks *s)
 	ft_lstadd_front(&s->parts, ft_lstnew((void *)(size_t)len));
 	while (!is_sorted(s))
 	{
-		len = (int)s->parts->content;
+		len = v(s->parts);
 		if (len < THRESHOLD)
 		{
 			if (sort3(s, s->stack_a) || sort5(s))
