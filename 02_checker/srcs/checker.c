@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 10:37:02 by llalba            #+#    #+#             */
-/*   Updated: 2021/08/01 14:33:35 by llalba           ###   ########.fr       */
+/*   Updated: 2021/08/06 18:05:35 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,6 @@ static int	stdin_parsing(t_stacks *s)
 	op = 0;
 	return (1);
 }
-
-#include <stdio.h>
 
 static void	verdict(t_stacks *s, short parsing_OK)
 {
