@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 16:04:58 by llalba            #+#    #+#             */
-/*   Updated: 2021/07/30 16:51:43 by llalba           ###   ########.fr       */
+/*   Updated: 2021/08/06 17:14:19 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 int	main(int argc, char **argv)
 {
-	t_list		*stack_a;
-	t_list		*stack_b;
 	t_stacks	s;
 
 	if (argc <= 1)
