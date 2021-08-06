@@ -22,10 +22,14 @@ done
 count=0;
 total=0;
 max=0; 
+min=99999999999; 
 for i in $( awk '{ print $1; }' stats100 )
 do
   if (( $i > $max )); then
   max=$i
+  fi
+  if (( $i < $min )); then
+  min=$i
   fi
   total=$(echo $total+$i | bc )
   ((count++))
@@ -34,6 +38,8 @@ echo -n "Moyenne : " >> meta_test
 echo "scale=2; $total / $count" | bc >> meta_test
 echo -n "MAX : " >> meta_test
 echo "$max" >> meta_test
+echo -n "MIN : " >> meta_test
+echo "$min" >> meta_test
 cat meta_test
 rm -f stats100
 rm -f meta_test
