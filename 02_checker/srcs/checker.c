@@ -6,7 +6,7 @@
 /*   By: llalba <llalba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 10:37:02 by llalba            #+#    #+#             */
-/*   Updated: 2021/08/06 18:05:35 by llalba           ###   ########.fr       */
+/*   Updated: 2021/08/23 14:28:54 by llalba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,9 @@ static void	verdict(t_stacks *s, short parsing_OK)
 			tmp = tmp->next;
 		}
 	}
-	if (is_KO)
+	if (!parsing_OK)
+		ft_error();
+	else if (is_KO)
 		write(1, "KO\n", 3);
 	else
 		write(1, "OK\n", 3);
